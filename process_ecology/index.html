@@ -504,56 +504,56 @@ $('#myModal').on('shown.bs.modal', function () {
 
     event.preventDefault();
 
-     // Horizontal Design Procedure No Boot Weir
+    / Horizontal Design Procedure No Boot Weir
 
-    //4 Calculate the holdup and surge volumes
+    // //4 Calculate the holdup and surge volumes
 
-    var V_H = T_H*Q_L // Holdup Volume [ft3]
-    var V_S = T_S*Q_L // Surge Volume [ft3]
+    // var V_H = T_H*Q_L // Holdup Volume [ft3]
+    // var V_S = T_S*Q_L // Surge Volume [ft3]
 
-    //5 Obtain an L/D from table 7 and initially calculate the diameter
+    // //5 Obtain an L/D from table 7 and initially calculate the diameter
 
-    if (P <= 250) {
-        L_D = 2.25;
-    } else if (P > 250 && P <= 500) {
-        L_D = 3.5;
-    } else {
-        L_D = 5;
-    }
+    // if (P <= 250) {
+    //     L_D = 2.25;
+    // } else if (P > 250 && P <= 500) {
+    //     L_D = 3.5;
+    // } else {
+    //     L_D = 5;
+    // }
 
-    D = Math.pow( 4*(V_H+V_S)/(0.5*Math.PI*L_D) , 1/3 );
+    // D = Math.pow( 4*(V_H+V_S)/(0.5*Math.PI*L_D) , 1/3 );
 
-    A_T = 0.25*Math.PI*D*D;
+    // A_T = 0.25*Math.PI*D*D;
 
-    //6 Set the vapor space height H_V to the larger of 2ft or 0.2D; 1ft is there is no mist eliminator
+    // //6 Set the vapor space height H_V to the larger of 2ft or 0.2D; 1ft is there is no mist eliminator
 
-    if (mist_eliminator) {
-      H_V = ( 2 > 0.2*D )*2 + ( 2 < 0.2*D )*0.2*D;
-    } else {
-      H_V = ( 1 > 0.2*D )*1 + ( 1 < 0.2*D )*0.2*D;
-    }
+    // if (mist_eliminator) {
+    //   H_V = ( 2 > 0.2*D )*2 + ( 2 < 0.2*D )*0.2*D;
+    // } else {
+    //   H_V = ( 1 > 0.2*D )*1 + ( 1 < 0.2*D )*0.2*D;
+    // }
 
-    // Using HV/D in Table 3, obtain AV/AT and calculate AV
+    // // Using HV/D in Table 3, obtain AV/AT and calculate AV
 
-    x = H_V/D;
+    // x = H_V/D;
 
-    var f = {
-      'a' : -4.755930e-5,
-      'b' : 3.924091,
-      'c' : 0.174875,
-      'd' : -6.358805,
-      'e' : 5.668973,
-      'f' : 4.018448,
-      'g' : -4.916411,
-      'h' : -1.801705,
-      'i' : -0.145348
-    };
+    // var f = {
+    //   'a' : -4.755930e-5,
+    //   'b' : 3.924091,
+    //   'c' : 0.174875,
+    //   'd' : -6.358805,
+    //   'e' : 5.668973,
+    //   'f' : 4.018448,
+    //   'g' : -4.916411,
+    //   'h' : -1.801705,
+    //   'i' : -0.145348
+    // };
 
-    A_V = A_T * (f.a + f.c*x + f.e*Math.pow(x,2) + f.g*Math.pow(x,3) + f.i*Math.pow(x,4))/(1 + f.b*x + f.d*Math.pow(x,2) + f.f*Math.pow(x,3) + f.h*Math.pow(x,4));
+    // A_V = A_T * (f.a + f.c*x + f.e*Math.pow(x,2) + f.g*Math.pow(x,3) + f.i*Math.pow(x,4))/(1 + f.b*x + f.d*Math.pow(x,2) + f.f*Math.pow(x,3) + f.h*Math.pow(x,4));
 
 
 
-    alert(x)
+    // alert(x)
 
   });
 </script>
