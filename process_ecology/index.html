@@ -1,59 +1,256 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)https://getbootstrap.com/docs/4.3/examples/checkout/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
+    <meta name="description" content="Three Phase Separator">
+    <meta name="author" content="Sebastián López Sánchez">
+
     <title>Three Phase Separator</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
-
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/"> -->
     <!-- Bootstrap core CSS -->
-<link href="./files/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link href="./files/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+      .container { max-width: 960px; }
+      .lh-condensed { line-height: 1.25; }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="./files/form-validation.css" rel="stylesheet">
+
   </head>
   <body class="bg-light">
 <div class="container">
+  <!-- Header -->
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="./files/logo_pe.png" alt="" width="144" height="72">
     <h2>Three Phase Separator</h2>
-    <p class="lead">A three phase separator is vessel that separates the well fluids into gas and two types of liquids: oil and water. </p>
+    <p class="lead">A three phase separator is vessel that separates the well fluids into gas and two types of liquids: oil and water.</p>
   </div>
 
   <div class="row">
 
-    <div class="col-md-4 order-md-2 mb-4">
+    <!-- Calculations Form  -->
+    <div class="col-md-8">
+      <h4 class="mb-3">Vertical Separator</h4>
+      <h5 class="mb-3">Input Variables</h5>
+      <hr class="mb-4">
+      <form class="needs-validation" id="vertical-separator" novalidate="">
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="P">Operating Pressure [psia]</label>
+            <input type="text" class="form-control" id="P" value="165" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid pressure is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="mu_LL">Viscosity of the light liquid [cP]</label>
+            <input type="text" class="form-control" id="mu_LL" value="0.630" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Viscosity of the light liquid is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="mu_HL">Viscosity of the heavy liquid [cP]</label>
+            <input type="text" class="form-control" id="mu_HL" value="0.764" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Viscosity of the heavy liquid is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="rho_V">Vapor Density [lb/ft3]</label>
+            <input type="text" class="form-control" id="rho_V" value="0.6973" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Vapor Density is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="rho_LL">Light Liquid Density [lb/ft3]</label>
+            <input type="text" class="form-control" id="rho_LL" value="53.95" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Light Liquid Density is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="rho_HL">Heavy Liquid Density [lb/ft3]</label>
+            <input type="text" class="form-control" id="rho_HL" value="62.11" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Heavy Liquid Density is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="W_HL">Heavy Liquid mass flow [lb/h]</label>
+            <input type="text" class="form-control" id="W_HL" value="1300" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Heavy Liquid mass flow is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="W_LL">Light Liquid mass flow [lb/h]</label>
+            <input type="text" class="form-control" id="W_LL" value="16500" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Light Liquid mass flow is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="W_V">Gas mass flow [lb/h]</label>
+            <input type="text" class="form-control" id="W_V" value="415000" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Gas mass flow is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="K_S">Mix Ks Value (Table 1)</label>
+            <input type="text" class="form-control" id="K_S" value="0.163" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Mix Ks Value is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="T_H">Required hold up<br> time [min]</label>
+            <input type="text" class="form-control" id="T_H" value="25" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid hold up time is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="T_S">Required surge time <br> [min]</label>
+            <input type="text" class="form-control" id="T_S" value="5" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid surge time is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3  baffle-plate collapse">
+            <label for="G">Allowable Downflow [gph/ft2] (Fig. 2)</label>
+            <input type="text" class="form-control" id="G" value="9800" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Allowable Downflow is required.
+            </div>
+          </div>
+           <div class="col-md-4 mb-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="mist_eliminator" checked>
+              <label class="custom-control-label" for="mist_eliminator">Mist eliminator</label>
+            </div>
+            <hr>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="baffle_plate" data-toggle="collapse" data-target=".baffle-plate"  aria-expanded="false">
+              <label class="custom-control-label" for="baffle_plate">Baffle Plate</label>
+            </div>
+          </div>
+        </div>
+
+        <h5 class="mb-3">Assumed Dimensions</h5>
+        <hr class="mb-4">
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="H_LL">Height of the Light Liquid H_L [ft]</label>
+            <input type="text" class="form-control" id="H_LL" value="1" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Height of the Light Liquid is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="H_HL">Height of the Heavy Liquid (H_H) [ft]</label>
+            <input type="text" class="form-control" id="H_HL" value="1" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Height of the Heavy Liquid is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="H_R">Height of the Liquid Above Outlet (H_R) [ft]</label>
+            <input type="text" class="form-control" id="H_R" value="0.75" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Height of the Liquid Above Outlet is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3 baffle-plate collapse">
+            <label for="H_A">Height of the Above Baffle (H_A) [ft]</label>
+            <input type="text" class="form-control" id="H_A" value="0.5" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Height of the Light Above Baffle is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3 baffle-plate collapse">
+            <label for="W_D">Baffle opening (W_D) [ft]</label>
+            <input type="text" class="form-control" id="W_D" value="0.33" placeholder="" required="">
+            <div class="invalid-feedback">
+              Valid Baffle Opening W_D is required.
+            </div>
+          </div>
+        </div>
+
+        <h5 class="mb-3">Resulting Dimensions</h5>
+        <hr class="mb-4">
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="D">Diameter [ft]</label>
+            <input type="text" readonly class="form-control-plaintext" id="D" value="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="d_N">Nozzle Diameter [ft]</label>
+            <input type="text" readonly class="form-control-plaintext" id="d_N" value="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="H_BN">Height BN [ft]</label>
+            <input type="text" readonly class="form-control-plaintext" id="H_BN" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3 baffle-plate collapse">
+            <label for="A_LL">Baffle Plate Area [ft2]</label>
+            <input type="text" readonly class="form-control-plaintext" id="A_LL" value="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="H_D">Height D [ft]</label>
+            <input type="text" readonly class="form-control-plaintext" id="H_D" value="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="H_total">Height Total [ft]</label>
+            <input type="text" readonly class="form-control-plaintext" id="H_total" value="">
+          </div>
+        </div>
+
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Calculate</button>
+        <br>
+
+      </form>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4 mb-4">
       <img class="img-fluid img-thumbnail" alt="Responsive image" src="./files/vertical.png" data-toggle="modal" data-target="#Figure1Modal">
       <figcaption class="figure-caption text-center">Figure 1 - Vertical Separator</figcaption>
       <hr class="mb-4">
       <img class="img-fluid img-thumbnail" alt="Responsive image" src="./files/k_s.png" data-toggle="modal" data-target="#Table1Modal">
       <figcaption class="figure-caption text-center">Table 1 - Typical values of Ks for liquid-liquid separations</figcaption>
       <hr class="mb-4">
-      <img class="img-fluid img-thumbnail" alt="Responsive image" src="./files/g.png" data-toggle="modal" data-target="#Figure2Modal">
-      <figcaption class="figure-caption text-center mb-4">Figure 2 - Allowable Downflow</figcaption>
+      <img class="img-fluid img-thumbnail baffle-plate collapse" alt="Responsive image" src="./files/g.png" data-toggle="modal" data-target="#Figure2Modal">
+      <figcaption class="figure-caption text-center mb-4 baffle-plate collapse">Figure 2 - Allowable Downflow</figcaption>
     </div>
 
+    <!-- Sidebar images Modals -->
     <div class="modal fade" id="Figure1Modal" tabindex="-1" role="dialog" aria-labelledby="Figure1ModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -108,223 +305,19 @@
       </div>
     </div>
 
-    <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Vertical Separator</h4>
-      <h5 class="mb-3">Input Variables</h5>
-      <hr class="mb-4">
-      <form class="needs-validation" id="vertical-separator" novalidate="">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="P">Operating Pressure [psia]</label>
-            <input type="text" class="form-control" id="P" value="165" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid pressure is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="rho_LL">Light Liquid Density [lb/ft3]</label>
-            <input type="text" class="form-control" id="rho_LL" value="53.95" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Light Liquid Density is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="rho_HL">Heavy Liquid Density [lb/ft3]</label>
-            <input type="text" class="form-control" id="rho_HL" value="62.11" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Heavy Liquid Density is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="rho_V">Vapor Density [lb/ft3]</label>
-            <input type="text" class="form-control" id="rho_V" value="0.6973" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Vapor Density is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="K_S">Mix Ks Value (Table 1)</label>
-            <input type="text" class="form-control" id="K_S" value="0.163" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Mix Ks Value is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="G">Allowable Downflow [gph/ft2] (Fig. 2)</label>
-            <input type="text" class="form-control" id="G" value="9800" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Allowable Downflow is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="W_HL">Heavy Liquid mass flow [lb/h]</label>
-            <input type="text" class="form-control" id="W_HL" value="1300" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Heavy Liquid mass flow is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="W_LL">Light Liquid mass flow [lb/h]</label>
-            <input type="text" class="form-control" id="W_LL" value="16500" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Light Liquid mass flow is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="W_V">Gas mass flow [lb/h]</label>
-            <input type="text" class="form-control" id="W_V" value="415000" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Gas mass flow is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="mu_LL">Viscosity of the light liquid [cP]</label>
-            <input type="text" class="form-control" id="mu_LL" value="0.630" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Viscosity of the light liquid is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="mu_HL">Viscosity of the heavy liquid [cP]</label>
-            <input type="text" class="form-control" id="mu_HL" value="0.764" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Viscosity of the heavy liquid is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="T_H">Required hold up<br> time [min]</label>
-            <input type="text" class="form-control" id="T_H" value="25" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid hold up time is required.
-            </div>
-          </div>
-        </div>
-
-         <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="T_S">Required surge time <br> [min]</label>
-            <input type="text" class="form-control" id="T_S" value="5" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid surge time is required.
-            </div>
-          </div>
-           <div class="col-md-4 mb-3">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="mist_eliminator">
-              <label class="custom-control-label" for="mist_eliminator">Mist eliminator</label>
-            </div>
-            <hr>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="baffle_plate">
-              <label class="custom-control-label" for="baffle_plate">Baffle Plate</label>
-            </div>
-          </div>
-        </div>
-
-        <h5 class="mb-3">Assumed Dimensions</h5>
-        <hr class="mb-4">
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="H_LL">Height of the Light Liquid H_L [ft]</label>
-            <input type="text" class="form-control" id="H_LL" value="1" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Height of the Light Liquid is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="H_HL">Height of the Heavy Liquid (H_H) [ft]</label>
-            <input type="text" class="form-control" id="H_HL" value="1" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Height of the Heavy Liquid is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="H_R">Height of the Liquid Above Outlet (H_R) [ft]</label>
-            <input type="text" class="form-control" id="H_R" value="0.75" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Height of the Liquid Above Outlet is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="H_A">Height of the Above Baffle (H_A) [ft]</label>
-            <input type="text" class="form-control" id="H_A" value="0.5" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Height of the Light Above Baffle is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="W_D">Baffle opening (W_D) [ft]</label>
-            <input type="text" class="form-control" id="W_D" value="0.33" placeholder="" required="">
-            <div class="invalid-feedback">
-              Valid Baffle Opening W_D is required.
-            </div>
-          </div>
-        </div>
-
-        <h5 class="mb-3">Resulting Dimensions</h5>
-        <hr class="mb-4">
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="D">Diameter [ft]</label>
-            <input type="text" readonly class="form-control-plaintext" id="D" value="">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="d_N">Nozzle Diameter [ft]</label>
-            <input type="text" readonly class="form-control-plaintext" id="d_N" value="">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="A_LL">Baffle Plate Area [ft2]</label>
-            <input type="text" readonly class="form-control-plaintext" id="A_LL" value="">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="H_BN">Height BN [ft]</label>
-            <input type="text" readonly class="form-control-plaintext" id="H_BN" value="">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="H_D">Height D [ft]</label>
-            <input type="text" readonly class="form-control-plaintext" id="H_D" value="">
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="H_total">Height Total [ft]</label>
-            <input type="text" readonly class="form-control-plaintext" id="H_total" value="">
-          </div>
-        </div>
-
-
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Calculate</button>
-      </form>
-    </div>
   </div>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">© 2019 Process Ecology</p>
   </footer>
 </div>
+
 <script src="./files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
 <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-
 <script src="./files/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
 <script>
-// // Example starter JavaScript for disabling form submissions if there are invalid fields
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 // (function() {
 //   'use strict';
 //   window.addEventListener('load', function() {
@@ -343,16 +336,11 @@
 //   }, false);
 // })();
 //<script src="./files/calculations.js">/script>
-
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
 </script>
-
 
 <script>
   $('#vertical-separator').submit(function(event) {
-    
+
     // Input Variables
     var P = Number( $("#P").val() );
     var K_S = Number( $("#K_S").val() );
@@ -366,17 +354,17 @@ $('#myModal').on('shown.bs.modal', function () {
     var mu_HL = Number( $("#mu_HL").val() );
     var G = Number( $("#G").val() );
     var T_H = Number( $("#T_H").val() );
-    var T_S = Number( $("#T_S").val() );
     var mist_eliminator = $("#mist_eliminator").prop('checked');
     var baffle_plate = $("#baffle_plate").prop('checked');
+    var T_S = Number( $("#T_S").val() );
 
     // Assumed Dimensions
 
     var H_LL = Number( $("#H_LL").val() );
     var H_HL = Number( $("#H_HL").val() );
     var H_R = Number( $("#H_R").val() );
-    var H_A = Number( $("#H_A").val() );
-    var W_D = Number( $("#W_D").val() );
+    var H_A = Number( $("#H_A").val() ) * baffle_plate;
+    var W_D = Number( $("#W_D").val() ) * baffle_plate;
 
     // Derived Variables
 
@@ -407,7 +395,7 @@ $('#myModal').on('shown.bs.modal', function () {
     //5 Calculate the rising velocity of the light liquid of the heavy liquid using Stoke's Law
     U_LL = K_S * (rho_HL - rho_LL) / mu_HL; // [in/min]
 
-    //6 Calculate the light and heavy liquid volumetric flow rates 
+    //6 Calculate the light and heavy liquid volumetric flow rates
 
     Q_HL = W_HL/(60*rho_HL); // [ft3/min]
     Q_LL = W_LL/(60*rho_LL); // [ft3/min]
@@ -432,10 +420,10 @@ $('#myModal').on('shown.bs.modal', function () {
       //9 Calculate baffle plate area
 
       if (baffle_plate) {
-        //d From allowable downflow and volumetric flow rates  
-        A_D = 7.48*60*(Q_LL+Q_HL)/G; // Equation I3 [ft2] 
+        //d From allowable downflow and volumetric flow rates
+        A_D1 = 7.48*60*(Q_LL+Q_HL)/G; // Equation I3 [ft2]
         //f Calculate ratio
-        x = W_D/D; 
+        x = W_D/D;
 
         // table 3 coefficients for cylindrical height and area conversions
         var f = {
@@ -452,9 +440,11 @@ $('#myModal').on('shown.bs.modal', function () {
 
         //i Calculate the area of discharge A_D
 
-        A_D = A * (f.a + f.c*x + f.e*Math.pow(x,2) + f.g*Math.pow(x,3) + f.i*Math.pow(x,4))/(1 + f.b*x + f.d*Math.pow(x,2) + f.f*Math.pow(x,3) + f.h*Math.pow(x,4));
+        A_D2 = A * (f.a + f.c*x + f.e*Math.pow(x,2) + f.g*Math.pow(x,3) + f.i*Math.pow(x,4))/(1 + f.b*x + f.d*Math.pow(x,2) + f.f*Math.pow(x,3) + f.h*Math.pow(x,4));
 
-        //j Calculate the area of the baffle 
+        A_D = (A_D1 > A_D2)*A_D1 + (A_D1 < A_D2)*A_D2;
+
+        //j Calculate the area of the baffle
         A_LL = A - A_D; // [ft2]
       } else {
         A_LL = A;
@@ -466,7 +456,7 @@ $('#myModal').on('shown.bs.modal', function () {
       theta_HL = H_HL * A / Q_HL;
 
     }
-    
+
     //11 Calculate the heigh of the light liquid above the outlet (holdup height) based on the requited holdup
     H_R = Q_LL * T_H / A_LL; // [ft] check with assumption in step 9b
     H_S = (Q_LL + Q_HL) * T_S / A; // [ft]
